@@ -8,9 +8,9 @@ else
   translate = $(shell echo '$1' | sed 's/:/;/g')
 endif
 
-all: finish.pdf
+all: build/finish.pdf
 
-finish.pdf: build/plot.pdf aufbau.tex auswertung.tex diskussion.tex durchfuehrung.tex finish.tex header.tex theorie.tex title.tex | build
+build/finish.pdf: build/plot.pdf aufbau.tex auswertung.tex diskussion.tex durchfuehrung.tex finish.tex header.tex theorie.tex title.tex | build
 	TEXINPUTS="$(call translate,build:)" \
 	BIBINPUTS="$(call translate,$(pwd):)" \
 	latexmk \
