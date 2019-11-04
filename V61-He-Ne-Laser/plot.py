@@ -83,7 +83,7 @@ plt.clf()
 
 def Mode_01(x, x0, I0, w,a):  
     #return (I0-a*x)*(x-x0)**2*np.exp(-2*(x-x0)**2/w**2)    #Achtung! Modifiziert unter der Annahme, dass unsere Laserleistung linear abnimmt
-    return I0-(x-x0)**2*np.exp(-2*(x-x0)**2/w**2)
+    return I0*(x-x0)**2*np.exp(-2*(x-x0)**2/w**2)
 
 plt.plot(l*2,I01, 'kx', label ='Messwerte')
 plt.xlabel(r'$\Delta X/\si{\milli\meter}$')
