@@ -1,3 +1,55 @@
+\subsection{Polarisation}
+
+Bei der Messung der Intensität des Laserstrahls in Abhängigkeit von der Polarisation des Filters ergaben sich die
+Messwerte in Tabelle \ref{tab:pol_data}.
+Nach Gleichung \ref{eq:pol} wird mit Scipy \cite{scipy} ein nicht-linearer Fit der Form $I/I_0 = a$cos$(bx+c)^2$ durchgeführt.
+
+\begin{table}
+\centering
+\caption{Intensität des Laserstrahls in Abhängigkeit von der eingestellten Polarisation.}
+\label{tab:pol_data}
+\begin{tabular}{c c c}
+\toprule
+$\phi/°$ & $\phi/rad$ & $I/\mu A$ \\
+\midrule
+0 & 0 & 141.00 \\
+15 & 0.262 & 169.00 \\
+30 & 0.524 & 164.00 \\
+45 & 0.785 & 143.00 \\
+60 & 1.047 & 103.00 \\
+75 & 1.309 & 66.00 \\
+90 & 1.571 & 25.00 \\
+105 & 1.833 & 4.10 \\
+120 & 2.094 & 1.45 \\
+135 & 2.356 & 15.90 \\
+150 & 2.617 & 51.00 \\
+165 & 2.878 & 95.00 \\
+180 & 3.142 & 150.00 \\
+195 & 3.403 & 203.00 \\
+210 & 3.665 & 186.00 \\
+225 & 3.927 & 151.00 \\
+240 & 4.189 & 99.00 \\
+255 & 4.451 & 69.00 \\
+270 & 4.712 & 23.10 \\
+285 & 4.974 & 3.25 \\
+300 & 5.236 & 1.68 \\
+315 & 5.498 & 18.20 \\
+330 & 5.760 & 54.00 \\
+345 & 6.021 & 102.00 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+\subsection{Bestimmung der Wellenlänge}
+
+Die Wellenlänge des Lasers wird mit Gleichung \ref{eq:wellen} berechnet. Der Wert wird auf der Grundlage vom Abstand $x$ des
+nullten zum ersten Hauptmaximum bestimmt, da nicht mehr Hauptmaxima zu erkennen waren.
+Dabei wurde $x = 4.6$ cm gemessen.
+Die Gitterkonstante ist $g = 0.01$ mm und der Abstand vom Schirm zum Gitter $d = 70$ cm.
+
+Für die Wellenlänge des Lasers ergibt sich somit $\lambda = 656$ nm.
+
 Für die Fehlerrechung wird die empirische Standartabweichung
 \begin{equation}
   \sigma = \sqrt{\frac{1}{n-1} \cdot \sum_{i=1}^n(x_i-\overline{x})^2}
