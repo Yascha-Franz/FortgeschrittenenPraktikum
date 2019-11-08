@@ -113,7 +113,7 @@ def Mode_01(x, x0, I0, w,a):
 
 plt.plot(l*2,I01, 'kx', label ='Messwerte')
 plt.xlabel(r'$\Delta X/\si{\milli\meter}$')
-plt.ylabel(r'$I/\si{\micro\ampere}$')
+plt.ylabel(r'$I/\si{\nano\ampere}$')
 params, covariance_matrix = curve_fit(Mode_01, l*2, I01, p0=(-0.46568761, 3.29542082, 12.97749986, 5))
 errors = np.sqrt(np.diag(covariance_matrix))
 x_plot = np.linspace(np.min(l*2), np.max(l*2), 1000)
