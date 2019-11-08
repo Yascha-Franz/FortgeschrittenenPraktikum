@@ -41,17 +41,17 @@ Es ist jedoch ersichtlich, dass der flache Spiegel deutlich schlechtere Resultat
 \end{figure}
 
 \subsection{Bestimmung der Polarisation}
+\subsection{Polarisation}
 
-Es wird aufgrund der Formel \eqref{eqn:Polarisation} die Fit-Funktion \eqref{eqn:Polarisation_Fit} gewählt.
-\begin{equation}
-  I=I_0\text{cos}²(\phi + \phi_0)
-  \label{eqn:Polarisation_Fit}
-\end{equation}
-Mithilfe der curve\_fit von scipy \cite{scipy} ergeben sich dann die Parameter \eqref{eqn:Parameter_Polarisation}.
+Bei der Messung der Intensität des Laserstrahls in Abhängigkeit von der Polarisation des Filters ergaben sich die
+Messwerte in Tabelle \ref{tab:pol_data}.
+Nach Gleichung \ref{eq:pol} wird mit Scipy \cite{scipy} ein nicht-linearer Fit der Form $I = I_0$cos$(\phi+\phi_0)^2$ durchgeführt.
+Es ergeben sich Fit-Parameter
 \begin{align}
   \phi_0&=(-0,412\pm 0,016)\si{\radian}\nonumber\\
   I_0&=(173,5\pm 3,3)\si{\micro\ampere}\label{eqn:Parameter_Polarisation}
 \end{align}
+und der Plot aus Abbildung \ref{fig:Polarisation}.
 \begin{figure}
   \centering
   \includegraphics{build/Polarisation.pdf}
@@ -106,7 +106,12 @@ und der Plot aus Abbildung \ref{fig:Mode_01}.
 
 
 \subsection{Bestimmung der Wellenlänge}
+Die Wellenlänge des Lasers wird mit Gleichung \ref{eq:wellen} berechnet. Der Wert wird auf der Grundlage vom Abstand $x$ des
+nullten zum ersten Hauptmaximum bestimmt, da nicht mehr Hauptmaxima zu erkennen waren.
+Dabei wurde $x = 4.6$ cm gemessen.
+Die Gitterkonstante ist $g = 0.01$ mm und der Abstand vom Schirm zum Gitter $d = 70$ cm.
 
+Für die Wellenlänge des Lasers ergibt sich somit $\lambda = 656$ nm.
 \begin{equation}
   \sigma = \sqrt{\frac{1}{n-1} \cdot \sum_{i=1}^n(x_i-\overline{x})^2}
   \label{eqn:Stdabweichung}

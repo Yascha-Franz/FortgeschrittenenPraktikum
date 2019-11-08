@@ -2,6 +2,13 @@ Laser sind in der Lage Licht mit einer besonders hohen Intensität zu erzeugen. 
 die elektromagnetischen Wellen besitzen die gleiche Frequenz und sind kohärent zueinander. Die Prozesse, die zur
 Erzeugung des Laserlichts führen, finden im Wesentlichen in drei verschiedenen Komponenten des Lasers statt.
 
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{laseraufbau.png}
+\caption{Aufbau eines He-Ne-Lasers.\cite[3]{anleitung}}
+\label{fig:laseraufbau}
+\end{figure}
+
 \subsection{Der Resonator}
 
 Der Resonator besteht aus zwei Spiegeln, zwischen denen sich ein Glasrohr befindet. Dieses ist mit einem Helium-Neon-Gasgemisch
@@ -34,12 +41,26 @@ in eine zufällige Richtung emittiert. Der für die Funktion des Lasers entschei
 Emission. Dabei wird das angeregte Atom durch ein weiteres einfallendes Photon dazu gebracht, ein Photon auszusenden.
 Dieses und das einfallende Photon haben dann die gleiche Frequenz, Phasenlage und bewegen sich in die gleiche Richtung fort.
 
+\begin{figure}
+\centering
+\includegraphics[width=0.2\textwidth]{emission.jpg}
+\caption{Laserprinzipien: a) spontane Emission; b) induzierte Emission; c) Absorption.\cite{spektrum}}
+\label{fig:emission}
+\end{figure}
+
 Findet nun mehr stimulierte Emission statt als Absorption, dann wird immer mehr Licht in Richtung des
 bereits vorhandenen Lichts emittiert und das Licht wird immer weiter verstärkt. Dazu müssen sich allerdings mehr Atome im
 angeregten als im nicht-angeregten Zustand befinden, da beide Prozesse gleich wahrscheinlich sind. Dieser Zustand wird
 Besetzungsinversion genannt.
 Er bedeutet jedoch eine Abweichung vom thermodynamischen Gleichgewicht. In diesem befinden sich nämlich mehr Atome im nicht-angeregten
 Zustand. Aus diesem Grund muss dem Medium durch sogenanntes Pumpen Energie zugeführt werden.
+
+\begin{figure}
+\centering
+\includegraphics[width=0.4\textwidth]{inversion.jpg}
+\caption{Besetzungsdichte bei Inversion im Vergleich zur thermischen Besetzung.\cite{spektrum}}
+\label{fig:inversion}
+\end{figure}
 
 \subsection{Die Energiepumpe}
 
@@ -77,6 +98,7 @@ Die Intensität des Lichtes hinter einem Polarisationsfilter lässt sich durch d
 
 \begin{equation}
   I = I_0 \text{cos}^2(\delta\phi)
+\label{eq:pol}
 \end{equation}
 
 Dabei ist $I_0$ die Intensität des Lichtes vor dem Filter und $\delta\phi$ der zur Einstellung des Filters verschobene Winkel
@@ -89,6 +111,7 @@ auf einem Schirm auf. Mit Hilfe des Abstandes $x$ zwischen dem 0. und dem 1. Hau
 
 \begin{equation}
   \lambda = g \text{sin}(\text{arctan}(x/d))
+\label{eq:wellen}
 \end{equation}
 
 Dabei ist $d$ der Abstand zwischen Schirm und Gitter und $g$ die Gitterkonstante.
