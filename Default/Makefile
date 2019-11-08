@@ -10,7 +10,7 @@ endif
 
 all: build/finish.pdf
 
-build/finish.pdf: build/plot.pdf aufbau.tex auswertung.tex diskussion.tex durchfuehrung.tex finish.tex header.tex theorie.tex title.tex | build
+build/finish.pdf: build/plot.pdf aufbau.tex auswertung.tex diskussion.tex durchfuehrung.tex finish.tex header.tex theorie.tex title.tex ergebnisse.tex| build
 	TEXINPUTS="$(call translate,build:)" \
 	BIBINPUTS="$(call translate,$(pwd):)" \
 	latexmk \
