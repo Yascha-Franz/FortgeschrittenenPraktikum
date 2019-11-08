@@ -1,3 +1,5 @@
+Anmerkung: Wenn von Intensität gesprochen und Strom gemessen wird, sollte im Hinterkopf behalten werden, dass der gemessene Strom linear zur einfallenden Intensität ist.
+
 Für die Fehlerrechung wird die empirische Standartabweichung
 \begin{equation}
   \sigma = \sqrt{\frac{1}{n-1} \cdot \sum_{i=1}^n(x_i-\overline{x})^2}
@@ -9,3 +11,103 @@ und die Gaußsche Fehlerfortpflanzung
   \label{eqn:gauß}
 \end{equation}
 verwendet.
+
+\subsection{Überprüfung der Stabilitätsbedingung}
+Mittels der Formel \eqref{eqn:Stabilität} ergeben sich für unsere Spiegel Stabilitätsbedingungen, wie in Abbildung \ref{fig:Stabilität_Theorie} dargestellt. 
+Die mit diesen Spiegeln verbundene erreichbare Intensität sollte einen ähnlichen Verlauf besitzen.
+Wie aber an den Abbildungen \ref{fig:Stabilität_kon_kon} und \ref{fig:Stabilität_kon_flach} zu erkennen, ist dies nicht gelungen.
+Es ist jedoch ersichtlich, dass der flache Spiegel deutlich schlechtere Resultate liefert, als die konakaven Spiegel.
+
+\begin{figure}
+  \centering
+  \includegraphics{build/Justage_Theorie.pdf}
+  \caption{Skizze des Versuchsaufbaus}
+  \label{fig:Stabilität_Theorie}
+\end{figure}
+
+
+\begin{figure}
+  \centering
+  \includegraphics{build/Justage_kon_kon.pdf}
+  \caption{Skizze des Versuchsaufbaus}
+  \label{fig:Stabilität_kon_kon}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics{build/Justage_kon_flach.pdf}
+  \caption{Skizze des Versuchsaufbaus}
+  \label{fig:Stabilität_kon_flach}
+\end{figure}
+
+\subsection{Bestimmung der Polarisation}
+
+Es wird aufgrund der Formel \eqref{eqn:Polarisation} die Fit-Funktion \eqref{eqn:Polarisation_Fit} gewählt.
+\begin{equation}
+  I=I_0\text{cos}²(\phi + \phi_0)
+  \label{eqn:Polarisation_Fit}
+\end{equation}
+Mithilfe der curve\_fit von scipy \cite{scipy} ergeben sich dann die Parameter \eqref{eqn:Parameter_Polarisation}.
+\begin{align}
+  \phi_0&=(-0,412\pm 0,016)\si{\radian}\nonumber\\
+  I_0&=(173,5\pm 3,3)\si{\micro\ampere}\label{eqn:Parameter_Polarisation}
+\end{align}
+\begin{figure}
+  \centering
+  \includegraphics{build/Polarisation.pdf}
+  \caption{Skizze des Versuchsaufbaus}
+  \label{fig:Polarisation}
+\end{figure}
+
+%Polarisation: \Theta_0 I_0
+%[-0.41170658 173.52359794]
+%[0.01643449 3.29294166]
+
+\subsection{Beobachtung der TEM-Moden}
+Bei vermessen der TEM_{00}-Mode ergeben sich die Messwerte aus Tabelle \ref{tab:mode00_data}. 
+Es wird aufgrund der Gleichung \eqref{eq:mode00_fct} ein Fit der Form
+\begin{equation}
+  I=I_0^2e^{-2\frac{(x-x_0)^2}{\omega^2}}
+\end{equation}
+gewählt. Wird dieser nun mithilfe der curve\_fit Funktion von scipy \cite{scipy} gefittet und geplottet ergeben sich die Fit-Parameter
+\begin{align}
+  I_0&=(1,589\pm0,015)\si{\micro\ampere}\nonumber\\
+  x_0&=(-0,973\pm0,074)\si{\milli\meter}\nonumber\\
+  \omega&=(12,75\pm0,18)\si{milli\meter}
+\end{align}
+und der Plot aus Abbildung \ref{fig:Mode_00}.
+\begin{figure}
+  \centering
+  \includegraphics{build/Moden_00.pdf}
+  \caption{Skizze des Versuchsaufbaus}
+  \label{fig:Mode_00}
+\end{figure}
+Aufgrund der Gleichung \eqref{eq:} wird für die TEM_{01}-Mode der Fit 
+\begin{equation}
+  I=(I_0-a*x)(x-x_0)^2e^{-2\frac{(x-x_0)^2}{\omega^2}}
+\end{equation}
+gewählt. Der Parameter $a$ ist hierbei die Korrektur darauf, dass wir nicht garantieren können perfekt die $x$-Achse getroffen zu haben.
+Es wird also in Erster Näherung eine lineare Abhängigkeit angenommen.
+Gefittet mit unseren Messwerten aus Tabelle \ref{tab:mode01_data} und der curve\_fit Funktion von scipy \cite{scipy} ergeben sich die Fit-Parameter 
+\begin{align}
+  I_0&=(3,01\pm0,18)\si{\micro\ampere}\nonumber\\
+  x_0&=(0,35\pm0,23)\si{\milli\meter}\nonumber\\
+  \omega&=(13,47\pm0,29)\si{\milli\meter}\nonumber\\
+  a&=(0,103\pm0,011)\si{\micro\ampere}
+\end{align}
+und der Plot aus Abbildung \ref{fig:Mode_01}.
+
+\begin{figure}
+  \centering
+  \includegraphics{build/Moden_01.pdf}
+  \caption{Skizze des Versuchsaufbaus}
+  \label{fig:Mode_01}
+\end{figure}
+
+
+\subsection{Bestimmung der Wellenlänge}
+
+\begin{equation}
+  \sigma = \sqrt{\frac{1}{n-1} \cdot \sum_{i=1}^n(x_i-\overline{x})^2}
+  \label{eqn:Stdabweichung}
+\end{equation}
