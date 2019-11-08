@@ -1,17 +1,5 @@
 Anmerkung: Wenn von Intensität gesprochen und Strom gemessen wird, sollte im Hinterkopf behalten werden, dass der gemessene Strom linear zur einfallenden Intensität ist.
 
-Für die Fehlerrechung wird die empirische Standartabweichung
-\begin{equation}
-  \sigma = \sqrt{\frac{1}{n-1} \cdot \sum_{i=1}^n(x_i-\overline{x})^2}
-  \label{eqn:Stdabweichung}
-\end{equation}
-und die Gaußsche Fehlerfortpflanzung
-\begin{equation}
-  u_y = \sqrt{\sum_{i=1}^n\left(\frac{\delta y}{\delta x_i}u_x\right)^2}
-  \label{eqn:gauß}
-\end{equation}
-verwendet.
-
 \subsection{Überprüfung der Stabilitätsbedingung}
 Mittels der Formel \eqref{eqn:Stabilität} ergeben sich für unsere Spiegel Stabilitätsbedingungen, wie in Abbildung \ref{fig:Stabilität_Theorie} dargestellt. 
 Die mit diesen Spiegeln verbundene erreichbare Intensität sollte einen ähnlichen Verlauf besitzen.
@@ -21,7 +9,7 @@ Es ist jedoch ersichtlich, dass der flache Spiegel deutlich schlechtere Resultat
 \begin{figure}
   \centering
   \includegraphics{build/Justage_Theorie.pdf}
-  \caption{Skizze des Versuchsaufbaus}
+  \caption{Verlauf der Stabilitätsbedingung in Abhängigkeit vom Spiegelabstand für zwei Spiegelanordnungen}
   \label{fig:Stabilität_Theorie}
 \end{figure}
 
@@ -29,20 +17,18 @@ Es ist jedoch ersichtlich, dass der flache Spiegel deutlich schlechtere Resultat
 \begin{figure}
   \centering
   \includegraphics{build/Justage_kon_kon.pdf}
-  \caption{Skizze des Versuchsaufbaus}
+  \caption{Intensitätsverlauf für Konkav:Konkav in Abhängigkeit vom Spiegelabstand}
   \label{fig:Stabilität_kon_kon}
 \end{figure}
 
 \begin{figure}
   \centering
   \includegraphics{build/Justage_kon_flach.pdf}
-  \caption{Skizze des Versuchsaufbaus}
+  \caption{Intensitätsverlauf für Konkav:Flach in Abhängigkeit vom Spiegelabstand}
   \label{fig:Stabilität_kon_flach}
 \end{figure}
 
 \subsection{Bestimmung der Polarisation}
-\subsection{Polarisation}
-
 Bei der Messung der Intensität des Laserstrahls in Abhängigkeit von der Polarisation des Filters ergaben sich die
 Messwerte in Tabelle \ref{tab:pol_data}.
 Nach Gleichung \ref{eq:pol} wird mit Scipy \cite{scipy} ein nicht-linearer Fit der Form $I = I_0$cos$(\phi+\phi_0)^2$ durchgeführt.
@@ -55,7 +41,7 @@ und der Plot aus Abbildung \ref{fig:Polarisation}.
 \begin{figure}
   \centering
   \includegraphics{build/Polarisation.pdf}
-  \caption{Skizze des Versuchsaufbaus}
+  \caption{Intensitätsverlauf in Abhängigkeit von der Winkeleinstellung des Polarisationsfilter}
   \label{fig:Polarisation}
 \end{figure}
 
@@ -67,24 +53,24 @@ und der Plot aus Abbildung \ref{fig:Polarisation}.
 Bei vermessen der $TEM_{00}$-Mode ergeben sich die Messwerte aus Tabelle \ref{tab:mode00_data}. 
 Es wird aufgrund der Gleichung \eqref{eq:mode00_fct} ein Fit der Form
 \begin{equation}
-  I=I_0^2e^{-2\frac{(x-x_0)^2}{\omega^2}}
+  I=I_0e^{-2\frac{(x-x_0)^2}{\omega^2}}
 \end{equation}
 gewählt. Wird dieser nun mithilfe der curve\_fit Funktion von scipy \cite{scipy} gefittet und geplottet ergeben sich die Fit-Parameter
 \begin{align}
   I_0&=(1,589\pm0,015)\si{\micro\ampere}\nonumber\\
   x_0&=(-0,973\pm0,074)\si{\milli\meter}\nonumber\\
-  \omega&=(12,75\pm0,18)\si{milli\meter}
+  \omega&=(12,75\pm0,18)\si{\milli\meter}
 \end{align}
 und der Plot aus Abbildung \ref{fig:Mode_00}.
 \begin{figure}
   \centering
   \includegraphics{build/Moden_00.pdf}
-  \caption{Skizze des Versuchsaufbaus}
+  \caption{Intensitätsverlauf der $TEM_{00}$-Mode (Vergößert mit einer Linse)}
   \label{fig:Mode_00}
 \end{figure}
 Aufgrund der Gleichung \eqref{eq:} wird für die $TEM_{01}$-Mode der Fit 
 \begin{equation}
-  I=(I_0-a*x)(x-x_0)^2e^{-2\frac{(x-x_0)^2}{\omega^2}}
+  I=(I_0-ax)(x-x_0)^2e^{-2\frac{(x-x_0)^2}{\omega^2}}
 \end{equation}
 gewählt. Der Parameter $a$ ist hierbei die Korrektur darauf, dass wir nicht garantieren können perfekt die $x$-Achse getroffen zu haben.
 Es wird also in Erster Näherung eine lineare Abhängigkeit angenommen.
@@ -100,7 +86,7 @@ und der Plot aus Abbildung \ref{fig:Mode_01}.
 \begin{figure}
   \centering
   \includegraphics{build/Moden_01.pdf}
-  \caption{Skizze des Versuchsaufbaus}
+  \caption{Intensitätsverlauf der $TEM_{01}$-Mode (Vergößert mit einer Linse)}
   \label{fig:Mode_01}
 \end{figure}
 
@@ -108,11 +94,12 @@ und der Plot aus Abbildung \ref{fig:Mode_01}.
 \subsection{Bestimmung der Wellenlänge}
 Die Wellenlänge des Lasers wird mit Gleichung \ref{eq:wellen} berechnet. Der Wert wird auf der Grundlage vom Abstand $x$ des
 nullten zum ersten Hauptmaximum bestimmt, da nicht mehr Hauptmaxima zu erkennen waren.
-Dabei wurde $x = 4.6$ cm gemessen.
+Dabei wurde $x = 4,5\pm 0,1$ cm gemessen.
 Die Gitterkonstante ist $g = 0.01$ mm und der Abstand vom Schirm zum Gitter $d = 70$ cm.
-
-Für die Wellenlänge des Lasers ergibt sich somit $\lambda = 656$ nm.
-\begin{equation}
-  \sigma = \sqrt{\frac{1}{n-1} \cdot \sum_{i=1}^n(x_i-\overline{x})^2}
-  \label{eqn:Stdabweichung}
-\end{equation}
+Für die Wellenlänge des Lasers ergibt sich somit $\lambda = 642\pm 14$ nm.
+Die Fehler werden mit der Gaußschen Fehlerfortpflanzung berechnet
+\begin{align}
+  \sigma_{\lambda} &= \sqrt{\left(\frac{\partial \lambda}{\partial x}\sigma_x\right)^2}\nonumber\\
+                   &= \sqrt{\left(\frac{x^2}{d^2}+1 \right)^{-3}\sigma_x^2}
+  \label{eqn:gauß}
+\end{align}
