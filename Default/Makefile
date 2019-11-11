@@ -10,7 +10,7 @@ endif
 
 all: build/finish.pdf
 
-build/finish.pdf: build/plot.pdf aufbau.tex auswertung.tex diskussion.tex durchfuehrung.tex finish.tex header.tex theorie.tex title.tex ergebnisse.tex| build
+build/finish.pdf: build/plot.pdf content/aufbau.tex content/auswertung.tex content/diskussion.tex content/durchfuehrung.tex finish.tex header.tex content/theorie.tex title.tex content/ergebnisse.tex| build
 	TEXINPUTS="$(call translate,build:)" \
 	BIBINPUTS="$(call translate,$(pwd):)" \
 	latexmk \
@@ -20,8 +20,8 @@ build/finish.pdf: build/plot.pdf aufbau.tex auswertung.tex diskussion.tex durchf
 	--halt-on-error \
 	finish.tex
 
-build/plot.pdf: plot.py data.txt | build
-	TEXINPUTS="$(call translate,$(pwd):)" python plot.py
+build/plot.pdf: scripts/plot.py scripts/data.txt | build
+	TEXINPUTS="$(call translate,$(pwd):)" python scripts/plot.py
 
 build:
 	mkdir -p build

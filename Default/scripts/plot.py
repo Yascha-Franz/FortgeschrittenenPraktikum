@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 from scipy.optimize import curve_fit
 
-x,y = np.genfromtxt('data.txt',unpack=True)
+x,y = np.genfromtxt('scripts/data.txt',unpack=True)
 
 def f(x,a,b):
     return x*a +b
