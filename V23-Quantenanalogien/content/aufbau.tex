@@ -1,6 +1,16 @@
 \begin{figure}[H]
   \centering
     \begin{tikzpicture}
+      \fill (0,0)--(0,2)--(1,2)--(1,0)--cycle;
+      \node at (0.5,2.5) {Lautsprecher};
+
+      \filldraw[fill=white!80!black] (1,0)--(4,0)--(4,2)--(1,2)--cycle;
+      \filldraw[fill=white!80!black] (4,0)--(7,0)--(7,2)--(4,2)--cycle;
+      \filldraw[fill=white!80!black] (7,0)--(10,0)--(10,2)--(7,2)--cycle;
+      \node at (5.5,2.5) {Zylinder};
+
+      \fill (10,0)--(10,2)--(11,2)--(11,0)--cycle;
+      \node at (10.5,2.5) {Mikrofon};
     \end{tikzpicture}
   \caption{Skizze des Versuchsaufbaus}
   \label{fig:aufbau}
