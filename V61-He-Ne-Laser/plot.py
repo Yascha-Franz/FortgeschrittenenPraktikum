@@ -31,6 +31,8 @@ plt.savefig('build/Polarisation.pdf')
 plt.clf()
 
 #Justage konkav:flach (140:inf)
+def g(L,a,b):
+    return a*L+b
 L, I = np.genfromtxt('Justage_kon_flach.txt', unpack=True)
 
 #L*=10**(-2)
@@ -39,6 +41,11 @@ L, I = np.genfromtxt('Justage_kon_flach.txt', unpack=True)
 plt.plot(L,I, 'kx', label='Messwerte')
 plt.xlabel(r'L/\si{\centi\meter}')
 plt.ylabel(r'I/\si{\micro\ampere}')
+params, covariance_matrix = curve_fit(g, L, I)
+errors = np.sqrt(np.diag(covariance_matrix))
+x_plot = np.linspace(np.min(L), np.max(L), 1000)
+plt.plot(x_plot, g(x_plot, *params), 'b-', label='Fit')
+plt.legend(loc='best')
 plt.legend(loc='best')
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
 
