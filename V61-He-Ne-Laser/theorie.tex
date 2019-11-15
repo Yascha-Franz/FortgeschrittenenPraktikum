@@ -20,10 +20,24 @@ Andere Wellen werden aufgrund destruktiver Interferenzen stark abgeschwächt. Nu
 Vielfaches der halben Wellenlänge teilbar ist, überlagern sich die Wellen auf optimale Weise und das Licht wird gut verstärkt.
 
 Links und rechts des Resonators sind außerdem noch Brewsterfenster angebracht. Diese stehen im sogenannten Brewsterwinkel
-zur optischen Achse und beeinflussen die Polarisation des Lichtes. Licht, das parallel zur Einfallsebene polarisiert ist,
-geht ungehindert hindurch, während senkrecht zur Einfallsebene polarisiertes Licht durch teilweise Reflexion abgeschwächt wird.
-Werden mehrere Brewsterfenster hintereinander angebracht, so wird das senkrecht polarisierte Licht immer weiter abgeschwächt 
-und der Laser emittiert letztlich nur noch linear polarisiertes Licht.
+zur optischen Achse und beeinflussen die Polarisation des Lichtes. Licht, das p-polarisiert ist,
+geht ungehindert hindurch, während s-polarisiertes Licht durch teilweise Reflexion stark abgeschwächt wird.
+Die Resonanz der p-Polarisation ist somit deutlich stärker und es bildet sich einen stehende Welle mit p-Polarisation aus.
+
+\begin{figure}[H]
+  \centering
+    \begin{tikzpicture}
+      \draw (0,-0.115)--(2.7,-0.115);
+      \draw (0,2.115)--(1.45,2.115);
+      \draw[rotate around={45:(2,1)}] (2,1)ellipse(0.707106 and 1.41421);
+      \draw[rotate around={45:(2,1)},<->] (1.292894,1)--(2.707106,1);
+      \draw[rotate around={45:(2,1)},<->] (2,-0.41421)--(2,2.41421);
+      \node at (3,2) {s-polarisiert};
+      \node at (4.2,0) {p-polarisiert};
+    \end{tikzpicture}
+  \caption{Skizze eines Brewsterfensters}
+  \label{fig:Brewsterfenster}
+\end{figure}
 
 Ein Resonator gilt als stabil, wenn seine Verluste möglichst gering sind und die Verstärkung des Lichts gut funktionniert.
 Die Bedingung für Stabilität ist dabei durch den Stabilitätsparameter $g_1g_2$ gegeben. Er sollte zwischen 0 und 1 liegen.
