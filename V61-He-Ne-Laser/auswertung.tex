@@ -3,9 +3,19 @@ Anmerkung: Wenn von Intensität gesprochen und Strom gemessen wird, sollte im Hi
 \subsection{Überprüfung der Stabilitätsbedingung}
 Mittels der Formel \eqref{eqn:Stabilität} ergeben sich für unsere Spiegel Stabilitätsbedingungen, wie in Abbildung \ref{fig:Stabilität_Theorie} dargestellt. 
 Die mit diesen Spiegeln verbundene erreichbare Intensität sollte einen ähnlichen Verlauf besitzen.
-Wie aber an den Abbildungen \ref{fig:Stabilität_kon_kon} und \ref{fig:Stabilität_kon_flach}, die mittels der Messdaten aus den Tabellen
-\ref{tab:kon_kon_data} und \ref{tab:kon_flach_data} erstellt wurden, zu erkennen, ist dies nicht gelungen.
-Es ist jedoch ersichtlich, dass der flache Spiegel deutlich schlechtere Resultate liefert, als die konakaven Spiegel.
+Wie aber an der Abbildung \ref{fig:Stabilität_kon_kon}, die mittels der Messdaten aus der Tabelle
+\ref{tab:kon_kon_data} erstellt wurde, zu erkennen, ist dies für Konkav:Konkav nicht gelungen.
+Die Messdaten aus Tabelle \ref{tab:Stabilität_kon_flach} werden mittels der curve\_fit Methode von scipy \cite{scipy} nach
+\begin{equation}
+  I=aL+b
+\end{equation}
+gefittet. Es ergeben sich die Parameter
+\begin{align}
+  a&=(-0,72\pm 0,18)\si{\micro\ampere\per\centi\meter}\nonumber\\
+  b&=(83,4\pm 13,1)\si{\micro\ampere}
+\end{align}
+Es ist ersichtlich, dass der flache Spiegel deutlich schlechtere Resultate liefert, als die konakaven Spiegel.
+
 
 \begin{figure}
   \centering

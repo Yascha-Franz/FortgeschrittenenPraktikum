@@ -52,6 +52,11 @@ plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
 plt.savefig('build/Justage_kon_flach.pdf')
 plt.clf()
 
+print("a/\si{\micro\ampere\per\centi\meter} b/\si{\micro\ampere}")
+print(*params)
+print(errors)
+
+
 #Justage konkav:konkav (140:140)
 L, I = np.genfromtxt('Justage_kon_kon.txt', unpack=True)
 
