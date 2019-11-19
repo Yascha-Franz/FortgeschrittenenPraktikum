@@ -5,31 +5,7 @@ Sinusgenerator unterschiedliche Resonanzen in verschiedenen Hohlraumresonatoren 
 
 Als Analogie zum Wasserstoffatom steht für die Messung ein Kugelresonator zur Verfügung, der sich aus zwei Halbkugeln
 zusammensetzt. In ihm befinden sich ein Mikrofon und ein Lautsprecher, die entweder gegenüber voneinander (180° Winkel)
-oder unter einem anderen Winkel zueinander positioniert werden können.
-
-Das Wasserstoffmolekül kann mit Hilfe von zwei Kugellresonatoren realisiert werden. Dazu werden zwei Halbkugeln mit Öffnung
-zwischen die ersten beiden Kugeln eingesetzt.
-
-Zur Realisierung eines 1-dim. Festkörper werden mehrere zylinderförmige Resonatoren hintereinander auf einer Schiene platziert
-und können mit verschiedenen Blenden dazwischen gekoppelt werden (siehe Abbildung \ref{fig:aufbau}).
-
-\begin{figure}[H]
-  \centering
-    \begin{tikzpicture}
-      \fill (0,0)--(0,2)--(1,2)--(1,0)--cycle;
-      \node at (0.5,2.5) {Lautsprecher};
-
-      \filldraw[fill=white!80!black] (1,0)--(4,0)--(4,2)--(1,2)--cycle;
-      \filldraw[fill=white!80!black] (4,0)--(7,0)--(7,2)--(4,2)--cycle;
-      \filldraw[fill=white!80!black] (7,0)--(10,0)--(10,2)--(7,2)--cycle;
-      \node at (5.5,2.5) {Zylinder};
-
-      \fill (10,0)--(10,2)--(11,2)--(11,0)--cycle;
-      \node at (10.5,2.5) {Mikrofon};
-    \end{tikzpicture}
-  \caption{Skizze des Zylinderaufbaus}
-  \label{fig:aufbau_zylinder}
-\end{figure}
+oder unter einem anderen Winkel zueinander positioniert werden können (siehe Abbildung \ref{fig:aufbau_kugel}).
 
 \begin{figure}[H]
   \centering
@@ -65,4 +41,28 @@ und können mit verschiedenen Blenden dazwischen gekoppelt werden (siehe Abbildu
     \end{tikzpicture}
   \caption{Skizze des gekoppelten Kugelaufbaus}
   \label{fig:aufbau_kugel_2}
+\end{figure}
+
+Das Wasserstoffmolekül kann mit Hilfe von zwei Kugellresonatoren realisiert werden. Dazu werden zwei Halbkugeln mit Öffnung
+zwischen die ersten beiden Kugeln eingesetzt (siehe Abbildung \ref{fig:aufbau_kugel_2}).
+
+Zur Realisierung eines 1-dim. Festkörper werden mehrere zylinderförmige Resonatoren hintereinander auf einer Schiene platziert
+und können mit verschiedenen Blenden dazwischen gekoppelt werden (siehe Abbildung \ref{fig:aufbau_zylinder}).
+
+\begin{figure}[H]
+  \centering
+    \begin{tikzpicture}
+      \fill (0,0)--(0,2)--(1,2)--(1,0)--cycle;
+      \node at (0.5,2.5) {Lautsprecher};
+
+      \filldraw[fill=white!80!black] (1,0)--(4,0)--(4,2)--(1,2)--cycle;
+      \filldraw[fill=white!80!black] (4,0)--(7,0)--(7,2)--(4,2)--cycle;
+      \filldraw[fill=white!80!black] (7,0)--(10,0)--(10,2)--(7,2)--cycle;
+      \node at (5.5,2.5) {Zylinder};
+
+      \fill (10,0)--(10,2)--(11,2)--(11,0)--cycle;
+      \node at (10.5,2.5) {Mikrofon};
+    \end{tikzpicture}
+  \caption{Skizze des Zylinderaufbaus}
+  \label{fig:aufbau_zylinder}
 \end{figure}
