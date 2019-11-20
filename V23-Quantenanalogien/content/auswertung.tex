@@ -9,3 +9,27 @@ und die Gaußsche Fehlerfortpflanzung
   \label{eqn:gauß}
 \end{equation}
 verwendet.
+
+\subsection{Zylinderresonator}
+\subsubsection{Schallgeschwindigkeit}
+Mittels der Gleichung \eqref{eq:resonanz} lässt sich für die Daten aus Tabelle \ref{tab:zylinder} ein Fit der der Form
+\begin{equation}
+  \Delta f = \frac{c}{2L}
+\end{equation}
+herleiten. Dieser wird mit der curve\_fit Funktion von scipy \cite{scipy} gefittet und ergibt die Schallgeschwindigkeit
+\begin{equation}
+  c_{Messung} =(339,33\pm 0,54)\si{\metre\per\second}.
+\end{equation}
+und den Graphen in Abbildung \ref{fig:plot_zylinder}.
+Dieser Wert liegt nahe an einem Theoriewert für Raumtemperatur ($20°$C) und normalem Atmosphärendruck.
+\begin{equation}
+  c_{Theorie} =343\si{\metre\per\second}
+\end{equation}
+
+
+\begin{figure}
+  \centering
+  \includegraphics{build/plot.pdf}
+  \caption{Frequenzdifferenz in Abhängigkeit der Länge eines Zylinderresonators}
+  \label{fig:plot_zylinder}
+\end{figure}
