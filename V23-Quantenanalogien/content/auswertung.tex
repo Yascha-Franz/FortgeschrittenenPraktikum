@@ -37,7 +37,7 @@ Dieser Wert liegt nahe an einem Theoriewert für Raumtemperatur ($20°$C) und no
 \subsubsection{Resonanzsweep in Zylinderketten}
 Der durchgeführte Resonanzsweep (1-10 kHz) zeigt ähnliche Ergebnisse beim Oszilloskop und PC, wie in Abbildung \ref{fig:plot_2zylinder_sweep} zu erkennen ist.
 Die Bilder des PC's sind aber von deutlich besserer Qualität, weshalb diese bei allen weiteren Messungen zur Auswertung verwendet werden.
-Die, in den Abbildungen \ref{fig:plot_2zylinder_sweep} und \ref{fig:plot_zylinder_sweep} dargestellten, Resonanzsweeps bestätigen die Resonanzbedingung \eqref{eq:resonanz} aus der Theorie.
+Die, in den Abbildungen \ref{fig:plot_2zylinder_sweep} und \ref{fig:plot_zylinder_sweep} dargestellten, Resonanzsweeps bestätigen die Resonanzbedingung \eqref{eq:resonanz} aus der Theorie durch ihre stetig ansteigende Anzahl an Resonanzpeaks.
 \begin{figure}
   \centering
   \begin{subfigure}{0.48\textwidth}
@@ -83,7 +83,96 @@ die aber relativ nahe an anderen Peaks liegen und dadurch nicht mit dem Oszillos
 
 \begin{figure}
   \centering
-  \includegraphics{Bilder/PC_Kugelresonator/180_100-10000Hz.png}
+  \includegraphics[width=0.8\textwidth]{Bilder/PC_Kugelresonator/180_100-10000Hz.png}
   \caption{Resonanzspektrum des Kugelresonators bei 100-10000Hz}
   \label{fig:kugel_resonanz}
+\end{figure}
+
+\subsubsection{Winkelabhängigkeit}
+Da unser Messwinkel $\alpha$ nicht senkrecht zur Symmetrieachse liegt, muss dieser umgeformt werden können um ihn in die Kugelflächenfunktionen einzusetzen.
+Die Beziehung erfolgt aus trigonometrischen Überlegungen und ergibt sich als 
+\begin{align}
+  \cos(\theta)&=\frac{1}{2}\left(\cos(\alpha)-1\right)\nonumber\\
+  \theta&=\arccos\left(\frac{1}{2} \left(\cos(\alpha)-1\right)\right).\label{eq:alpha_zu_theta}
+\end{align}
+Die ersten Kugelflächenfunktionen (normiert nach max$(Y)=1$) ergeben sich als
+\begin{align}
+  Y_{00} &= 1\\
+  Y_{10} &= \text{cos}(\theta)\\
+  Y_{20} &= \frac{1}{2}(3\text{cos}^2(\theta)-1) \\
+  Y_{30} &= \frac{1}{2}(5\text{cos}^3(\theta)-3\text{cos}(\theta))\\
+  Y_{40} &= \frac{1}{8}(35\text{cos}^4(\theta)-30\text{cos}^2(\theta)+3)\\
+  Y_{50} &= \frac{1}{8}(\text{cos}(\theta)\cdot(63\text{cos}^4(\theta)-70\text{cos}^2(\theta)+15))
+\end{align}
+Werden nun die Daten aus Tabelle \ref{tab:kugel_resonanz_winkel} nach Gleichung \eqref{eq:alpha_zu_theta} umgeformt, ebenfalls nach max$(A)=1$ normiert
+und in einem Polarplot geplottet, ergeben sich die Plots aus Abbildung \ref{fig:kugel_resonanz_winkel}.
+Die zugeordeneten Kugelflächenfunktionen sind hierbei per Auge gewählt worden und haben aufgrund der Normierung keine Fit-Parameter.
+
+\begin{figure}
+  \centering
+  \begin{subfigure}{0.32\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{build/Kugel_Winkel_3.pdf}
+    \caption{$3,666$kHz}
+  \end{subfigure}
+  \begin{subfigure}{0.32\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{build/Kugel_Winkel_6.pdf}
+    \caption{$6,174$kHz}
+  \end{subfigure}
+  \begin{subfigure}{0.32\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{build/Kugel_Winkel_7.pdf}
+    \caption{$7,379$kHz}
+  \end{subfigure}
+  \caption{Normierte Amplituden in Abhängigkeit vom Winkel \theta}
+  \label{fig:kugel_resonanz_winkel}
+\end{figure}
+
+\subsubsection{Peakaufspaltung}
+Durch Einsetzen eines Ring in den Ring Kugelresonator entsteht eine Vorzugsrichtung und die Entartung in m wird aufgehoben.
+In Abbildung \ref{fig:kugel_ring} ist dies durch ein Aufspaltung des Peaks bei $2,3$kHz erkennen.
+Die Aufspaltung wird breiter je dicker der Ring zwischen den Kugelhälften ist.
+\begin{figure}
+  \centering
+  \begin{subfigure}{0.4\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{Bilder/PC_Kugelresonator/180_2000-2500_ohneRing.png}
+    \caption{Ohne Ring}
+  \end{subfigure}
+  \begin{subfigure}{0.4\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{Bilder/PC_Kugelresonator/180_2000-2500_3mmRing.png}
+    \caption{3mm Ring}
+  \end{subfigure}
+  \begin{subfigure}{0.4\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{Bilder/PC_Kugelresonator/180_2000-2500_9mmRing.png}
+    \caption{9mm Ring}
+  \end{subfigure}
+  \begin{subfigure}{0.4\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{Bilder/PC_Kugelresonator/180_2000-2500_12mmRing.png}
+    \caption{12mm Ring}
+  \end{subfigure}
+  \caption{Aufspaltung des Resonanzpeaks bei $2,3$kHz}
+  \label{fig:kugel_ring}
+\end{figure}
+
+Mit der Messung aus Tabelle \ref{tab:kugel_ring} lassen sich die Abbildungen \ref{fig:kugel_ring} erstellen.
+Die Resonanz bei $2,146$kHz lässt sich der Funktion $Y_{00}$ zuordnen und die Resonanz bei $2,257$kHz  der Funktion $Y_{01}$.
+\begin{figure}
+  \centering
+  \begin{subfigure}{0.4\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{build/Kugel_Ring_21.pdf}
+    \caption{$2,146$kHz}
+  \end{subfigure}
+  \begin{subfigure}{0.4\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{build/Kugel_Ring_22.pdf}
+    \caption{$2,257$kHz}
+  \end{subfigure}
+  \caption{Winkelverteilung bei dem aufgespaltenem Peak um $2,2$kHz}
+  \label{fig:kugel_ring}
 \end{figure}
