@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 from scipy.optimize import curve_fit
-"""
+
 L,F_1,phi_1,A_1,F_2,phi_2,A_2 = np.genfromtxt('scripts/Zylinder.txt',unpack=True)
 
 y=F_2-F_1
@@ -25,7 +25,7 @@ plt.clf()
 print("Lichtgeschwindigkeit")
 print(params)
 print(errors)
-"""
+
 #\alpha/° A_{3.666kHz}/V A_{6.174kHz}/V A_{7.379kHz}
 alpha, A_3, A_6, A_7 = np.genfromtxt('scripts/Kugel_Winkel.txt', unpack=True)
 alpha *= (2*np.pi)/360
@@ -77,13 +77,13 @@ def polarplot(x,y,f,savepath):
     plt.savefig(savepath)
     plt.clf()
 
-#polarplot(Theta,A_3,Y20,'build/Kugel_Winkel_3.pdf')
-#polarplot(Theta,A_6,Y40,'build/Kugel_Winkel_6.pdf')
-#polarplot(Theta,A_7,Y50,'build/Kugel_Winkel_7.pdf')
+polarplot(Theta,A_3,Y20,'build/Kugel_Winkel_3.pdf')
+polarplot(Theta,A_6,Y40,'build/Kugel_Winkel_6.pdf')
+polarplot(Theta,A_7,Y50,'build/Kugel_Winkel_7.pdf')
 
 alpha, A_21, A_22=np.genfromtxt('scripts/Kugel_9mm_Ring.txt', unpack=True)
 alpha=alpha/degree
 A_21=A_21/max(A_21)
 A_22=A_22/max(A_22)
-#polarplot(alpha,A_21,Y00,'build/Kugel_Ring_21.pdf')
-#polarplot(alpha,A_22,Y10,'build/Kugel_Ring_22.pdf')
+polarplot(alpha,A_21,Y00,'build/Kugel_Ring_21.pdf')
+polarplot(alpha,A_22,Y10,'build/Kugel_Ring_22.pdf')
