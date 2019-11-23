@@ -1,15 +1,3 @@
-Für die Fehlerrechung wird die empirische Standartabweichung
-\begin{equation}
-  \sigma = \sqrt{\frac{1}{n-1} \cdot \sum_{i=1}^n(x_i-\overline{x})^2}
-  \label{eqn:Stdabweichung}
-\end{equation}
-und die Gaußsche Fehlerfortpflanzung
-\begin{equation}
-  u_y = \sqrt{\sum_{i=1}^n\left(\frac{\delta y}{\delta x_i}u_x\right)^2}
-  \label{eqn:gauß}
-\end{equation}
-verwendet.
-
 \subsection{Zylinderresonator}
 \subsubsection{Schallgeschwindigkeit}
 Mittels der Gleichung \eqref{eq:resonanz} lässt sich für die Daten aus Tabelle \ref{tab:zylinder} ein Fit der der Form
@@ -160,7 +148,7 @@ Die Aufspaltung wird breiter je dicker der Ring zwischen den Kugelhälften ist.
 \end{figure}
 
 Mit der Messung aus Tabelle \ref{tab:kugel_ring} lassen sich die Abbildungen \ref{fig:kugel_ring} erstellen.
-Die Resonanz bei $2,146$kHz lässt sich der Funktion $Y_{00}$ zuordnen und die Resonanz bei $2,257$kHz  der Funktion $Y_{01}$.
+Die Resonanz bei $2,146$kHz lässt sich der Funktion $Y_{00}$ zuordnen und die Resonanz bei $2,257$kHz  der Funktion $Y_{10}$.
 \begin{figure}
   \centering
   \begin{subfigure}{0.4\textwidth}
@@ -175,4 +163,124 @@ Die Resonanz bei $2,146$kHz lässt sich der Funktion $Y_{00}$ zuordnen und die R
   \end{subfigure}
   \caption{Winkelverteilung bei dem aufgespaltenem Peak um $2,2$kHz}
   \label{fig:kugel_ring}
+\end{figure}
+
+\subsection{Gekoppelte Kugelresonatoren}
+Wie in den Abbildungen \ref{fig:molekül_plots} zu erkennen, bleiben die Resonanzfrequenzen um $2,3$kHz zunächst bestehen,
+werden aber mehr und mehr Blenden zwischen die zwei Kugelresonatoren gelegt, wird der zweite Peak stark abgeschwächt.
+Zudem wird der Peak hinter $2,4$kHz mit mehr Blenden näher an den $2,3$kHz Peak heranbewegt.
+Mit den Daten aus Tabelle \ref{tab:molekül} lassen sich Plots aus Abbildung \ref{fig:molekül_plots_} erstellen.
+Es ist ersichtlich, dass beiden Resonanzfrequenzen die $Y_{00}$ Mode zugewiesen werden kann.
+
+\begin{figure}
+  \centering
+  \begin{subfigure}{0.4\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{Bilder/PC_Molekül/ohne_Blende.png}
+    \caption{Ohne Blende}
+  \end{subfigure}
+  \begin{subfigure}{0.4\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{Bilder/PC_Molekül/5mm_Blende.png}
+    \caption{5mm Blende}
+  \end{subfigure}
+  \begin{subfigure}{0.4\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{Bilder/PC_Molekül/10mm_Blende.png}
+    \caption{10mm Blende}
+  \end{subfigure}
+  \begin{subfigure}{0.4\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{Bilder/PC_Molekül/15mm_Blende.png}
+    \caption{15mm Blende}
+  \end{subfigure}
+  \begin{subfigure}{0.4\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{Bilder/PC_Molekül/20mm_Blende.png}
+    \caption{20mm Blende}
+  \end{subfigure}
+  \begin{subfigure}{0.4\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{Bilder/PC_Molekül/25mm_Blende.png}
+    \caption{25mm Blende}
+  \end{subfigure}
+  \caption{Winkelverteilung bei dem aufgespaltenem Peak um $2,2$kHz}
+  \label{fig:molekül_plots}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \begin{subfigure}{0.4\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{build/Molekül_Ring_22.pdf}
+    \caption{$2,256$kHz}
+  \end{subfigure}
+  \begin{subfigure}{0.4\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{build/Molekül_Ring_23.pdf}
+    \caption{$2,327$kHz}
+  \end{subfigure}
+  \caption{Winkelverteilung bei dem aufgespaltenem Peak um $2,3$kHz beim gekoppelten Resonator mit 5mm Blende}
+  \label{fig:molekül_plots_}
+\end{figure}
+
+\subsection{Zylinderketten mit Blenden}
+\subsubsection{Reine Ketten}
+Wie an Abbildung \ref{fig:zylinder_blenden_rein} zu erkennen bilden sich mit zunehmender Zylinderzahl Resonanzbänder aus.
+Es entstehen pro hinzugefügtem Zylinder eine neue Resonanzfrequenz pro Resonanzband, die Bänder werden breiter und die Bandlücken kleiner.
+Es nähert sich also das System einem Sytem ohne Blenden an.
+
+\begin{figure}
+  \centering
+  \begin{subfigure}{0.4\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{Bilder/Zylinderketten/rein_2.png}
+    \caption{Zwei Zylinder}
+  \end{subfigure}
+  \begin{subfigure}{0.4\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{Bilder/Zylinderketten/rein_4.png}
+    \caption{Vier Zylinder}
+  \end{subfigure}
+  \begin{subfigure}{0.4\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{Bilder/Zylinderketten/rein_8.png}
+    \caption{Acht Zylinder}
+  \end{subfigure}
+  \begin{subfigure}{0.4\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{Bilder/Zylinderketten/rein_12.png}
+    \caption{Zwölf Zylinder}
+  \end{subfigure}
+  \caption{Resonanzsweeps von Zylinderketten mit Blenden}
+  \label{fig:zylinder_blenden_rein}
+\end{figure}
+
+\subsubsection{Alternierende Kette}
+Der Resonanzsweep (Abbildung \ref{fig:zylinder_alternierend}) mit alternierenden Blenden sorgen für eine Aufspaltung der Resonanzbänder.
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{Bilder/Zylinderketten/rein_12_alternierendeBlende.png}
+  \caption{Resonanzsweep einer Zylinderkette mit zwölf 50mm Zylindern und alternierenden Blenden}
+  \label{fig:zylinder_alternierend}
+\end{figure}
+
+\subsubsection{Fehlstellen}
+Wird der mittlere Zylinder durch einen Zylinder anderer Länge ersetzt, ergeben sich die Frequenzspektren in Abbildung \ref{fig:zylinder_fehlstellen}.
+Die Resonanzbänder bleiben zwar bestehen, aber werden durch die Fehlstelle verzerrt und die individuellen Peaks werden schwieriger aufzulösen.
+Bei der 75mm Fehlstelle ist der Effekt nicht ganz so dramatisch wie bei der $12,5$mm Fehlstelle.
+\begin{figure}
+  \centering
+  \begin{subfigure}{0.4\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{Bilder/Zylinderketten/unrein_12,5mm_mitte_doppel.png}
+    \caption{$12,5$mm Fehlstelle}
+  \end{subfigure}
+  \begin{subfigure}{0.4\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{Bilder/Zylinderketten/unrein_75mm_mitte_doppel_7.png}
+    \caption{75mm Fehlstelle}
+  \end{subfigure}
+  \caption{Resonanzsweeps von Zylinderketten (50mm Zylinder) mit Blenden und einer Fehlstelle}
+  \label{fig:zylinder_fehlstellen}
 \end{figure}

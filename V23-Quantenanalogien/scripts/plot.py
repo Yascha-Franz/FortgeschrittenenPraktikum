@@ -87,3 +87,10 @@ A_21=A_21/max(A_21)
 A_22=A_22/max(A_22)
 polarplot(alpha,A_21,Y00,'build/Kugel_Ring_21.pdf')
 polarplot(alpha,A_22,Y10,'build/Kugel_Ring_22.pdf')
+
+alpha, A_22, A_23=np.genfromtxt('scripts/Molekuel_5mm_Blende.txt', unpack=True)
+alpha=alpha/degree
+A_23=A_23/max(A_23)
+A_22=A_22/max(A_22)
+polarplot(alpha,A_22,Y00,'build/Molekül_Ring_22.pdf')
+polarplot(alpha,A_23,Y00,'build/Molekül_Ring_23.pdf')
