@@ -85,8 +85,12 @@ alpha, A_21, A_22=np.genfromtxt('scripts/Kugel_9mm_Ring.txt', unpack=True)
 alpha=alpha/degree
 A_21=A_21/max(A_21)
 A_22=A_22/max(A_22)
-polarplot(alpha,A_21,Y00,'build/Kugel_Ring_21.pdf')
-polarplot(alpha,A_22,Y10,'build/Kugel_Ring_22.pdf')
+def Y20(phi):
+    return 1+0*phi
+def Y21(phi):
+   return abs((np.cos(phi)))
+polarplot(alpha,A_21,Y20,'build/Kugel_Ring_21.pdf')
+polarplot(alpha,A_22,Y21,'build/Kugel_Ring_22.pdf')
 
 alpha, A_22, A_23=np.genfromtxt('scripts/Molekuel_5mm_Blende.txt', unpack=True)
 alpha=alpha/degree
