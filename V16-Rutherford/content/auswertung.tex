@@ -15,3 +15,84 @@ verwendet.
   \caption{Plot}
   \label{fig:plot}
 \end{figure}
+
+\subsection{Dichteabhängigkeit}
+Aus den abgelesenen Minima und Maxima in Tabelle \ref{tab:dichteprofil} lassen sich die Mittelwerte bestimmen.
+Die Maximal- und Minimalwerte werden im Folgenden als die Fehlerintervallgrenzen gewählt.
+Der Energieverlust durch das durchqueren der Folie ist proportional zur Amplitudendifferenz der Spannungspulse bei $p=0$.
+Da dieser Wert aufgrund endlicher Pumpleistung nicht erreicht werden kann,
+wird ein linearer Fit der Form
+\begin{equation}
+  A(p) = A_0 + bp
+\end{equation}
+mit der curve\_Fit-Funktion von scipy \cite{scipy} durch die Messwerte beider Messreihen gelegt.
+Dieser ergibt die Parameter
+\begin{align}
+  A_{0,\text{ohne}} &= (12,1 \pm 1,1)\si{\volt}\\
+  b_{\text{ohne}}   &= (-3,40 \pm 0,56)\cdot\SI{e-2}{\volt\per\milli\bar}\\
+  A_{0,\text{mit}} &= (8,2 \pm 0,9)\si{\volt}\\
+  b_{\text{mit}}   &= (-2,22 \pm 0,56)\cdot\SI{e-2}{\volt\per\milli\bar}
+\end{align}
+und die Plots in Abbildung \ref{fig:dichteprofil}.
+Durch den linearen Zusammenhang zur Energie lässt sich der Energieverlust durch die Folie bestimmen
+\begin{align}
+  \Delta E &= E_{\alpha}\left(1-\frac{A_{0,\text{mit}}}{A_{0,\text{ohne}}}\right)\\
+           &= (1,8 \pm 0,5)\si{\mega\electronvolt}
+\end{align}
+Damit nun die Bethe-Bloch-Gleichung verwendet werden kann, muss noch die mittlere Geschwindigkeit der $\alpha$-Teilchen ermittelt werden.
+Dies wird aus der mittleren Energie und der Energie-Geschwindigkeit-Beziehung hergeleiletet.
+\begin{align}
+  \overline{E} &= \frac{1}{2} E_{\alpha}\left(1 + \frac{A_{0,\text{mit}}}{A_{0,\text{ohne}}} \right)\\
+  \overline{v} &= \sqrt{\frac{2\overline{E}}{m_{\alpha}}}\\
+               &= (1,49 \pm 0,04)\cdot\SI{e+7}{\meter\per\second}
+\end{align}
+Desweiteren werden ein paar materialspezifische Größen benötigt (größtenteils entnommen aus \cite{Gold} oder Allgemeinwissen).
+Diese sind die Kernladungszahl von Gold $Z=79$ und des $\alpha$-Teilchens $z=2$, die Dichte von Gold $\rho=19,32\, \si{\gram\per\meter\cubed}$
+und die Atommasse von Gold $m_G=196,97\,\text{u}$ und die hierraus folgende Atomdichte
+\begin{equation}
+  n=\frac{\rho}{m_G}=5,9\cdot\SI{e+28}{\per\meter\cubed}
+\end{equation}
+, die mittlere Ionisierungsenergie $I=Z\cdot 10\si{\electronvolt}$.
+Mit diesen Werten und der Gleichung \eqref{eqn:bethe-bloch} kann nun die Foliendicke
+\begin{equation}
+  \Delta x = (3,9 \pm 1,1)\cdot\SI{e-6}{\meter}
+\end{equation}
+
+\begin{figure}
+  \centering
+  \includegraphics{build/dichteprofil.pdf}
+  \caption{Durchschnittliche Amplitude der Pulse (Balken gehen von Minimum bis Maximum) gegenüber dem Druck in der Streukammer. Schwarz ist ohne Folie, Blau ist mit Folie}
+  \label{fig:dichteprofil}
+\end{figure}
+
+\subsection{Streuung}
+
+\begin{figure}
+  \centering
+  \includegraphics{build/streu_gold.pdf}
+  \caption{Zählrate in Abhängigkeit des Winkels bei Streuung an einer $2\si{\micro\meter}$ Goldfolie}
+  \label{fig:streu_gold}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics{build/streu_platin.pdf}
+  \caption{Zählrate in Abhängigkeit des Winkels bei Streuung an einer $2\si{\micro\meter}$ Platinfolie}
+  \label{fig:streu_platin}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics{build/streu_bismut.pdf}
+  \caption{Zählrate in Abhängigkeit des Winkels bei Streuung an einer $2\si{\micro\meter}$ Bismutfolie}
+  \label{fig:streu_bismut}
+\end{figure}
+
+\subsection{Z-Abhängigkeit}
+
+\begin{figure}
+  \centering
+  \includegraphics{build/ordnung.pdf}
+  \caption{Fit-Parameter $C$ gegenüber der Ordnungszahl $Z$}
+  \label{fig:ordnung}
+\end{figure}
