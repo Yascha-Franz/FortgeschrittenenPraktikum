@@ -1,21 +1,21 @@
-Für die Fehlerrechung wird die empirische Standartabweichung
-\begin{equation}
-  \sigma = \sqrt{\frac{1}{n-1} \cdot \sum_{i=1}^n(x_i-\overline{x})^2}
-  \label{eqn:Stdabweichung}
-\end{equation}
-und die Gaußsche Fehlerfortpflanzung
-\begin{equation}
-  u_y = \sqrt{\sum_{i=1}^n\left(\frac{\delta y}{\delta x_i}u_x\right)^2}
-  \label{eqn:gauß}
-\end{equation}
-verwendet.
-\begin{figure}
-  \centering
-  \includegraphics{build/plot.pdf}
-  \caption{Plot}
-  \label{fig:plot}
-\end{figure}
-
+%Für die Fehlerrechung wird die empirische Standartabweichung
+%\begin{equation}
+%  \sigma = \sqrt{\frac{1}{n-1} \cdot \sum_{i=1}^n(x_i-\overline{x})^2}
+%  \label{eqn:Stdabweichung}
+%\end{equation}
+%und die Gaußsche Fehlerfortpflanzung
+%\begin{equation}
+%  u_y = \sqrt{\sum_{i=1}^n\left(\frac{\delta y}{\delta x_i}u_x\right)^2}
+%  \label{eqn:gauß}
+%\end{equation}
+%verwendet.
+%\begin{figure}
+%  \centering
+%  \includegraphics{build/plot.pdf}
+%  \caption{Plot}
+%  \label{fig:plot}
+%\end{figure}
+%
 \subsection{Dichteabhängigkeit}
 Aus den abgelesenen Minima und Maxima in Tabelle \ref{tab:dichteprofil} lassen sich die Mittelwerte bestimmen.
 Die Maximal- und Minimalwerte werden im Folgenden als die Fehlerintervallgrenzen gewählt.
@@ -52,7 +52,7 @@ und die Atommasse von Gold $m_G=196,97\,\text{u}$ und die hierraus folgende Atom
 \begin{equation}
   n=\frac{\rho}{m_G}=5,9\cdot\SI{e+28}{\per\meter\cubed}
 \end{equation}
-, die mittlere Ionisierungsenergie $I=Z\cdot 10\si{\electronvolt}$.
+, sowie die mittlere Ionisierungsenergie $I=Z\cdot 10\si{\electronvolt}$.
 Mit diesen Werten und der Gleichung \eqref{eqn:bethe-bloch} kann nun die Foliendicke
 \begin{equation}
   \Delta x = (3,9 \pm 1,1)\cdot\SI{e-6}{\meter}
@@ -66,7 +66,25 @@ Mit diesen Werten und der Gleichung \eqref{eqn:bethe-bloch} kann nun die Foliend
 \end{figure}
 
 \subsection{Streuung}
-
+Für die Streuung ergibt aufgrung des differentiellen Wirkungsquerschnitts aus Gleichung \eqref{eqn:dsdo} die Fit-Funktion
+\begin{equation}
+  N(\Theta) = \frac{C}{\sin^4\left(\frac{\Theta-\Theta_0}{2}\right)}
+\end{equation}
+und es ergeben sich mit den Daten aus den Tabellen \ref{tab:streu_gold}, \ref{tab:streu_platin} und \ref{tab:streu_bismut}
+die Parameter aus Tabelle \ref{tab:Fitparameter}, sowie die Plots aus den Abbildungen \ref{fig:streu_gold}, \ref{fig:streu_platin} und \ref{fig:streu_bismut}.
+\begin{table}
+  \centering
+  \caption{Fitparameter der Zählrate-Winkel-Messung}
+  \label{tab:Fitparameter}
+  \begin{tabular}{c|ccc}
+    \toprule
+    \diagdown & Gold & Platin & Bismut\\
+    \midrule
+    $C$         & (2,14 \pm 0,69)\cdot\SI{e-6}{\becquerel} & (1,9 \pm 1,2)\cdot\SI{e-4}{\becquerel} & (8,89 \pm 2,30)\cdot\SI{e-5}{\becquerel} \\
+    $\Theta_0$  & 1,65 \pm 0,11                       & 7,19 \pm 1,23                     & 5,54 \pm 0,39                       \\
+    \bottomrule
+  \end{tabular}
+\end{table}
 \begin{figure}
   \centering
   \includegraphics{build/streu_gold.pdf}
@@ -89,7 +107,16 @@ Mit diesen Werten und der Gleichung \eqref{eqn:bethe-bloch} kann nun die Foliend
 \end{figure}
 
 \subsection{Z-Abhängigkeit}
-
+Wird nun die $Z^2$-Abhängigkeit von Gleichung \eqref{eqn:dsdo} überprüft muss der Fitparameter $C$ aus Tabelle \ref{tab:Fitparameter}
+gegen der Ordnungszahl $Z$ aufgetragen und mit einem Fit der Form
+\begin{equation}
+  C(Z) = aZ^2
+\end{equation}
+gefittet werden.
+Es entsteht der Plot in Abbildung \ref{fig:ordnung} und der Parameter
+\begin{equation}
+  a = (1,54 \pm 0,78)\cdot\SI{e-8}{\becquerel}.
+\end{equation}
 \begin{figure}
   \centering
   \includegraphics{build/ordnung.pdf}

@@ -104,19 +104,17 @@ def streu(path, name, savepath,s):
     n = uN/t
     plt.xlabel(r'$\Theta/°$')
     plt.ylabel(r'$N/\si{\becquerel}$')
-    if s<=0:
-        params, errors = plotfit(theta, unp.nominal_values(n), Rutherford, savepath, yerr=unp.std_devs(n), slice_=(theta<=s), p0=(0.001,2))
-    else:
-        params, errors = plotfit(theta, unp.nominal_values(n), Rutherford, savepath, yerr=unp.std_devs(n), slice_=(theta>=s), p0=(0.001,2))
+    params, errors = plotfit(theta, unp.nominal_values(n), Rutherford, savepath, yerr=unp.std_devs(n), slice_=(unp.nominal_values(n)<=s), p0=(0.001,2))
     param = unp.uarray(params, errors)
     print(name)
     print("C, \Theta_0")
     print(param)
     return param[0]
 
-c1 = streu('scripts/streu_bismut.txt', 'Bismut', 'build/streu_bismut.pdf',0)
-c2 = streu('scripts/streu_gold.txt', 'Gold', 'build/streu_gold.pdf',-4)
-c3 = streu('scripts/streu_platin.txt', 'Platin', 'build/streu_platin.pdf',0)
+c1 = streu('scripts/streu_bismut.txt', 'Bismut', 'build/streu_bismut.pdf',18)
+plt.ylim(top = 8)
+c2 = streu('scripts/streu_gold.txt', 'Gold', 'build/streu_gold.pdf',4)
+c3 = streu('scripts/streu_platin.txt', 'Platin', 'build/streu_platin.pdf',18)
 
 def C(Z, c_0):
     return c_0 * Z**2
@@ -128,3 +126,6 @@ Z = np.array([83, 79, 78])
 plt.xlabel('C')
 plt.ylabel('Ordnungszahl Z')
 params, errors = plotfit(Z, c, C, 'build/ordnung.pdf', yerr=cerr)
+print("Ordnung")
+print("a")
+print(*params, "+/-", *errors)
