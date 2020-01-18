@@ -1,5 +1,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
+import uncertainties.unumpy as unp
+import scipy.constants as cst
 from scipy.optimize import curve_fit
 
 def plotfit(x,y,f,savepath,slice_=slice(0,None),yerr=None, p0=None, save=True, color='k', label='Messwerte'):
@@ -57,3 +59,36 @@ print('Eichung')
 print('A/\si{\milli\\tesla\per\\ampere}, B_0/\si{\milli\\tesla}')
 print(*params)
 print(*errors)
+
+B_ = unp.uarray(params, errors)
+
+def B(I):
+    return (B_[0]*I + B_[1])*10**(-3)
+
+#Lande-Faktoren
+print()
+print('Lande-Faktoren')
+
+def dellambda(ds,Ds,Dl):
+    return np.mean(ds/Ds*Dl)/2
+
+def g_j(dl, l, B):
+    return cst.h * cst.c/(l**2 * cst.value('Bohr magneton') * B) * dl
+
+I = [4, 2.2, 6]   #rot, blau_sigma, blau_pi
+linien = ['rot', 'blau_sigma', 'blau_pi']
+
+rot_D, rot_d = np.genfromtxt('scripts/rot.txt', unpack = True)
+blau_sigma_D, blau_sigma_d = np.genfromtxt('scripts/blau_sigma.txt', unpack = True)
+blau_pi_D, blau_pi_d = np.genfromtxt('scripts/blau_pi.txt', unpack = True)
+Ds = [rot_D, blau_sigma_D, blau_pi_D]
+ds = [rot_d, blau_sigma_d, blau_pi_d]
+Dl = np.array([48.913, 26.952, 26.952])
+l = np.array([643.8, 480, 480])
+Dl *= 10**(-12)
+l *= 10**(-9)
+
+for i in range(0,3):
+    print(linien[i])
+    print('B = ', B(I[i]))
+    print('g_j = ', g_j(dellambda(ds[i], Ds[i], Dl[i]), l[i], B(I[i])))
