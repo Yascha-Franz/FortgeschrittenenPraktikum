@@ -1,1 +1,116 @@
-insert theorie here
+Werden zweiwertige Kationen (hier Sr$^{2+}$) in ein Gitter, das ansonsten aus einwertigen Ionen besteht gebracht, so entstehen permanente
+elektrische Dipole. Dies liegt daran, dass nach dem Einsetzen eines Sr$^{2+}$-Ions eine Leerstelle an einem der Gitterplätze
+erzeugt wird, um die Ladungsneutralität zu bewahren. Das Ion und die Leerstelle bilden dann einen Dipol.
+
+Die Richtung dieses Dipols hängt von der Verbindungsachse zwischen den beiden Störstellen ab. Dabei sind nur diskrete
+Ausrichtungen möglich.
+Will der Dipol seine Richtung ändern, so geschieht dies nur über sogenannte Leerstellendiffusion (bei niedrigeren Temperaturen $T$ unter
+500°C können sich nur Leerstellen hin und her bewegen). Dazu muss jedoch eine bestimmte Aktivierungsenergie $W$ vorhanden sein,
+um eine bestimmte, durch das Gitter festgelegte, Potentialschwelle überwinden zu können.
+
+Aufgrund von thermischen Bewegungen ist ein Teil der Dipolgesamtheit dazu in der Lage. Dieser beträgt nach Boltzmann
+
+\begin{equation}
+	\mathrm{e}^{-\frac{W}{k_B T}} .
+\end{equation}
+
+Die Relaxationszeit ergibt sich proportional dazu aus
+
+\begin{equation}
+	\tau = \tau_0 \mathrm{e}^{\frac{W}{k_B T}} .
+\end{equation}
+
+Dies ist die mittlere Zeit zwischen zwei Umorientierungen eines Dipols. Dabei ist $\tau_0 = \tau(\infty)$ die charakteristische Relaxationszeit.
+
+Die Richtungen der Dipole sind ohne ein angelegtes Feld statistisch verteilt. Befindet sich die Probe aber in einem
+elektrischen Feld, so drehen sich die Dipole alle in Richtung des Feldes. Die thermische Bewegung der Gitterbausteine
+stört diesen Prozess jedoch.
+
+Der Teil der Dipolgesamtheit, der letztendlich in Feldrichtung zeigt, kann in diesem Versuch näherungsweise durch
+
+\begin{equation}
+	y(T) = \frac{p E}{3 k_B T}
+\end{equation}
+
+beschrieben werden. Dabei ist $E$ die Feldstärke des elektrischen Feldes und $p$ der Betrag des Dipolmomentes.
+
+Der Teil $y(T)$ stell sich jedoch nur ein, wenn das elektrische Feld lange genug ($t \gg \tau$) eingeschaltet ist.
+Um einen solchen Polarisationszustand beizubehalten, sollte die Temperatur der Probe möglichst schnell auf eine Temperatur $T_0$
+herabgesenkt werden. Dann kann das E-Feld ausgeschaltet werden, ohne dass der Zustand y(T) großartig verändert wird.
+$T_p$ ist dann die Polarisationstemperatur.
+
+Wird der Kondensator anschließend kurzgeschlossen und die Probe mit möglichst konstanter Heizrate $b$ erhitzt, so nehmen
+die Dipole wieder nach und nach eine statistische Verteilung an. Dies ist die sogenannte Dipolrelaxation, die einen
+Depolarisationsstrom $i(T)$ hervorruft.
+
+\begin{equation}
+	i(T) = F y(T_p) p \frac{\mathrm{d} N}{\mathrm{d} t} \label{eq:i1}
+\end{equation}
+
+Dabei ist $F$ der Probenquerschnitt und $\frac{\mathrm{d} N}{\mathrm{d} t}$ die Rate der pro Volumen- und Zeiteinheit
+relaxierenden Dipole.
+
+Die Änderung der noch ausgerichteten Dipole mit der Zeit kann durch die DGL
+
+\begin{equation}
+	\frac{\mathrm{d} N}{\mathrm{d} t} = -\frac{N}{\tau(T)}
+\end{equation}
+
+beschrieben werden. Die Zahl der ausgerichteten Dipole hängt also von der Relaxationszeit bzw. von der
+Temperatur ab.
+
+Durch das Lösen und Einsetzen der DGL in \eqref{eq:i1} ergibt sich der Zusammenhang zwischen dem Strom und der Temperatur.
+
+%\begin{equation}
+%	i(T) = F \frac{p^2 E}{3 k_B T_p} \frac{N_0}{\tau_0} \mathrm{e}^{-\frac{1}{b \tau_0} \int_{T_0}^T \mathrm{e}^{-\frac{W}{k_B T'}} \mathrm{d} T'} \cdot \mathrm{e}^{-\frac{W}{k_B T}}
+%\end{equation}
+
+%Für niedrige Temperaturen kann die Näherung
+
+%\begin{equation}
+%	i_(T) \approx F \frac{p^2 E}{3 k_B T_p} \frac{N_p}{\tau_0} \mathrm{e}^{-\frac{W}{k_B T}}
+%\end{equation}
+
+%benutzt werden.
+Unter Verwendung des Logarithmus ergibt sich mit $i_0 = 1$ pA
+
+\begin{equation}
+	\ln\left(\frac{i}{i_0}\right) = -\frac{W}{k_B} \cdot \frac{1}{T} + const . \label{eq:ln1}
+\end{equation}
+
+
+Die Polarisation $P$ im Kristall ändert sich ebenfalls. Diese Änderung kann durch
+
+\begin{equation}
+  \frac{\mathrm{d} P}{\mathrm{d} t} = - \frac{P}{\tau(T)}
+\end{equation}
+
+beschreiben werden.
+Dadurch ergibt sich ein Strom
+
+\begin{equation}
+  i(t) = F \frac{\mathrm{d} P}{\mathrm{d} t} .
+\end{equation}
+
+Daraus kann wieder eine Beziehung zwischen dem Strom und der Temperatur hergeleitet werden.
+
+\begin{equation}
+	\ln\left(\frac{I(T)}{i(T) \cdot const}\right) = \frac{W}{k_B} \cdot \frac{1}{T} \label{eq:ln2} .
+\end{equation}
+
+Dabei ist $I(T)$ ein Integral
+
+\begin{equation}
+	\int_{T}^{T^*} i(T') \mathrm{d}T'
+\end{equation}
+
+wobei $T^*$ eine hinreichend große Temperatur ist, bei der der Strom auf nahezu Null abgefallen ist.
+Die Aktivierungsenergie $W$ kann durch das Auftragen der logarithmischen Terme in \eqref{eq:ln1} oder \eqref{eq:ln2} gegen
+1/T erhalten werden. Die Steigung der erhaltenen Geraden entspricht dann nämlich $W/k_B$.
+
+Aus der Position des Maximums $T_{max}$ der Kurve des Polarisationsstroms kann anschließend die Relaxationszeit $\tau_0$
+bestimmt werden.
+
+\begin{equation}
+	\tau_0 = \frac{k_B T^2_{max}}{W b} \mathrm{e}^{-\frac{W}{k_B T_{max}}} .
+\end{equation}
