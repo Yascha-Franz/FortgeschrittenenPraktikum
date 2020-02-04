@@ -49,18 +49,18 @@ Die Messwerte und die Ausgleichskurven sind in Abbildung \ref{fig:Mit_Untergrund
 \end{figure}
 
 \subsection{Aktivierungsarbeit aus Anlaufkurve}
-Da der erste Berg als eine Exponentialfunktion ist ergibt sich die Beziehung
+Da der erste Berg eine Exponentialfunktion ist ergibt sich die Beziehung
 \begin{equation}
   \text{ln}(I(T)) = \frac{-W}{k_bT} + b
 \end{equation}
 Es lassen sich aus den bereinigten Daten die Werte
 \begin{align}
-  W &= (1,260\pm 0,084)\SI{e-19}{\joule}\nonumber\\
+  W_1 &= (1,260\pm 0,084)\SI{e-19}{\joule}\nonumber\\
   b &= 38,0\pm 2,4
 \end{align}
 für die $2\si{\kelvin\per\minute}$-Heizrate und
 \begin{align}
-  W &= (6,87\pm 0,84)\SI{e-20}{\joule}\nonumber\\
+  W_2 &= (6,87\pm 0,84)\SI{e-20}{\joule}\nonumber\\
   b &= 21,5\pm 2,4
 \end{align}
 für die $1,5\si{\kelvin\per\minute}$-Heizrate bestimmen.
@@ -83,18 +83,18 @@ Die Werte sind in Abbildung \ref{fig:Anlauf} dargestellt.
 \end{figure}
 
 \subsection{Aktivierungsarbeit aus Integration}
-Die Funktion ist ebenfalls exponentialverteilt, bzw.
+Die Funktion \eqref{eq:ln2} ist ebenfalls exponentialverteilt, bzw.
 \begin{equation}
   \text{ln}(f(T)) = \frac{-W}{k_bT} + b
 \end{equation}
 es ergeben sich die Werte
 \begin{align}
-  W &= (1,721\pm 0,028)\SI{e-19}{\joule}\nonumber\\
+  W_3 &= (1,721\pm 0,028)\SI{e-19}{\joule}\nonumber\\
   b &= -46,7\pm 0,8
 \end{align}
 für die $2\si{\kelvin\per\minute}$-Heizrate und
 \begin{align}
-  W &= (1,872\pm 0,105)\SI{e-19}{\joule}\nonumber\\
+  W_4 &= (1,872\pm 0,105)\SI{e-19}{\joule}\nonumber\\
   b &= -51,4\pm 3,0
 \end{align}
 für die $1,5\si{\kelvin\per\minute}$-Heizrate bestimmen.
@@ -115,3 +115,12 @@ Die Werte sind in Abbildung \ref{fig:Integriert} dargestellt.
   \caption{$\text{ln}(f(T))$ gegenüber inverser Temperatur}
   \label{fig:Integriert}
 \end{figure}
+
+\subsection{Relaxationszeit}
+Mit den Werten für die Aktivierungsarbeit ergeben sich nach der Formel \eqref{eq:tau_0} die Werte
+\begin{align}
+  \tau_{0,1} &= (2,04\pm 4,89)\SI{e-15}{\second}\nonumber\\
+  \tau_{0,2} &= (3,74\pm 9,24)\SI{e-8}{\second}\nonumber\\
+  \tau_{0,3} &= (3,83\pm 3,05)\SI{e-21}{\second}\nonumber\\
+  \tau_{0,4} &= (0,49\pm 1,48)\SI{e-22}{\second}\label{eq:relax}
+\end{align}

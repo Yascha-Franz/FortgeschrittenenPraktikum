@@ -4,6 +4,7 @@ from scipy.optimize import curve_fit
 from scipy import integrate
 import scipy.constants as cst
 from matplotlib.legend_handler import HandlerTuple
+import uncertainties.unumpy as unp
 
 def plotfit(x,y,f,savepath,slice_=slice(None,None),yerr=None, p0=None, save=True, color='k', label='Messwerte',fullfit=False):
     colors = ['k', 'b', 'g', 'r', 'y']
@@ -183,3 +184,14 @@ print("W, b")
 print(params_Integriert_15)
 print(errors_Integriert_15)
 print()
+
+W = unp.uarray([-params_Anlauf_2[0],-params_Anlauf_15[0],params_Integriert_2[0],params_Integriert_15[0]], [errors_Anlauf_2[0], errors_Anlauf_15[0], errors_Integriert_2[0],errors_Integriert_15[0]])
+T_max = np.array([T_2[np.argmax(I_2_korrigiert[T_2<280])], T_15[np.argmax(I_15_korrigiert[T_15<280])]])
+T_max = np.append(T_max, T_max)
+b = np.array([2, 1.5, 2, 1.5])
+t_0 = cst.k*T_max**2/(W*b)*unp.exp(-W/(cst.k*T_max))
+print("W/eV")
+print(W/cst.e)
+print()
+print("\\tau_0")
+print(t_0)
