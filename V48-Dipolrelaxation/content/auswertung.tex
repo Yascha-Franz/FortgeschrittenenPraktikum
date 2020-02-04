@@ -1,17 +1,117 @@
-Für die Fehlerrechung wird die empirische Standartabweichung
+\subsection{Untergrundsubtraktion}
+Es wird ein exponentieller Untergrund angenommen.
 \begin{equation}
-  \sigma = \sqrt{\frac{1}{n-1} \cdot \sum_{i=1}^n(x_i-\overline{x})^2}
-  \label{eqn:Stdabweichung}
+  I_{Untergrund}(T) = ae^{bT}+c
 \end{equation}
-und die Gaußsche Fehlerfortpflanzung
-\begin{equation}
-  u_y = \sqrt{\sum_{i=1}^n\left(\frac{\delta y}{\delta x_i}u_x\right)^2}
-  \label{eqn:gauß}
-\end{equation}
-verwendet.
+Mit den Daten aus Tabelle \ref{tab:2grad} ergeben sich für die $2\si{\kelvin\per\minute}$-Heizrate die Parameter
+\begin{align}
+  a &= (7,88\pm 2,38)\SI{e-2}{\pico\ampere} \nonumber\\
+  b &= (1,74\pm 0,09)\SI{e-2}{\per\kelvin} \nonumber\\
+  c &= (-3,27\pm 0,42)\si{\pico\ampere}
+\end{align}
+und aus Tabelle \ref{tab:1,5grad} für die die $1,5\si{\kelvin\per\minute}$-Heizrate die Parameter
+\begin{align}
+  a &= (1,48\pm 0,78)\si{\pico\ampere} \nonumber\\
+  b &= (7,00\pm 1,25)\SI{e-3}{\per\kelvin} \nonumber\\
+  c &= (-6,49\pm 1,75)\si{\pico\ampere}
+\end{align}
+Die Messwerte und die Ausgleichskurven sind in Abbildung \ref{fig:Mit_Untergrund} und die bereinigten Werte in Abbildung \ref{fig:Bereinigt} dargestellt.
 \begin{figure}
   \centering
-  \includegraphics{build/plot.pdf}
-  \caption{Plot}
-  \label{fig:plot}
+  \begin{subfigure}{0.4\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{build/I_mit_untergrund_2.pdf}
+    \subcaption{Heizrate von $2\si{\kelvin\per\minute}$}
+  \end{subfigure}
+  \begin{subfigure}{0.4\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{build/I_mit_untergrund_15.pdf}
+    \subcaption{Heizrate von $1,5\si{\kelvin\per\minute}$}
+  \end{subfigure}
+  \caption{Gemessener Strom. In die Ausgleichsrechnung miteinbezogene Werte sind in schwarz.}
+  \label{fig:Mit_Untergrund}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \begin{subfigure}{0.4\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{build/I_2.pdf}
+    \subcaption{Heizrate von $2\si{\kelvin\per\minute}$}
+  \end{subfigure}
+  \begin{subfigure}{0.4\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{build/I_15.pdf}
+    \subcaption{Heizrate von $1,5\si{\kelvin\per\minute}$}
+  \end{subfigure}
+  \caption{Bereinigter Strom}
+  \label{fig:Bereinigt}
+\end{figure}
+
+\subsection{Aktivierungsarbeit aus Anlaufkurve}
+Da der erste Berg als eine Exponentialfunktion ist ergibt sich die Beziehung
+\begin{equation}
+  \text{ln}(I(T)) = \frac{-W}{k_bT} + b
+\end{equation}
+Es lassen sich aus den bereinigten Daten die Werte
+\begin{align}
+  W &= (1,260\pm 0,084)\SI{e-19}{\joule}\nonumber\\
+  b &= 38,0\pm 2,4
+\end{align}
+für die $2\si{\kelvin\per\minute}$-Heizrate und
+\begin{align}
+  W &= (6,87\pm 0,84)\SI{e-20}{\joule}\nonumber\\
+  b &= 21,5\pm 2,4
+\end{align}
+für die $1,5\si{\kelvin\per\minute}$-Heizrate bestimmen.
+Die Werte sind in Abbildung \ref{fig:Anlauf} dargestellt.
+
+\begin{figure}
+  \centering
+  \begin{subfigure}{0.4\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{build/Anlauf_2.pdf}
+    \subcaption{Heizrate von $2\si{\kelvin\per\minute}$}
+  \end{subfigure}
+  \begin{subfigure}{0.4\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{build/Anlauf_15.pdf}
+    \subcaption{Heizrate von $1,5\si{\kelvin\per\minute}$}
+  \end{subfigure}
+  \caption{Logarithmierter Strom gegenüber inverser Temperatur}
+  \label{fig:Anlauf}
+\end{figure}
+
+\subsection{Aktivierungsarbeit aus Integration}
+Die Funktion ist ebenfalls exponentialverteilt, bzw.
+\begin{equation}
+  \text{ln}(f(T)) = \frac{-W}{k_bT} + b
+\end{equation}
+es ergeben sich die Werte
+\begin{align}
+  W &= (1,721\pm 0,028)\SI{e-19}{\joule}\nonumber\\
+  b &= -46,7\pm 0,8
+\end{align}
+für die $2\si{\kelvin\per\minute}$-Heizrate und
+\begin{align}
+  W &= (1,872\pm 0,105)\SI{e-19}{\joule}\nonumber\\
+  b &= -51,4\pm 3,0
+\end{align}
+für die $1,5\si{\kelvin\per\minute}$-Heizrate bestimmen.
+Die Werte sind in Abbildung \ref{fig:Integriert} dargestellt.
+
+\begin{figure}
+  \centering
+  \begin{subfigure}{0.4\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{build/Integriert_2.pdf}
+    \subcaption{Heizrate von $2\si{\kelvin\per\minute}$}
+  \end{subfigure}
+  \begin{subfigure}{0.4\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{build/Integriert_15.pdf}
+    \subcaption{Heizrate von $1,5\si{\kelvin\per\minute}$}
+  \end{subfigure}
+  \caption{$\text{ln}(f(T))$ gegenüber inverser Temperatur}
+  \label{fig:Integriert}
 \end{figure}
