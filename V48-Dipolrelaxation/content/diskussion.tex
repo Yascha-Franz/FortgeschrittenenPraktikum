@@ -1,1 +1,38 @@
-insert diskussion here
+Der Literaturwert\cite{literaturwert} für die Aktivierungsenergie in Strontium dotierten Kalium-Bromid Kristallen liegt bei
+\begin{equation}
+  W_{lit} = \SI{0.66}{\electronvolt}.
+\end{equation}
+Bei Betrachtung der bestimmten Aktivierungsenergien (Tabelle \ref{tab:alen})
+fällt auf, dass beide Methoden auf ein Ergebnis ähnlicher Größenordnung führen.
+Allerdings fällt auf, dass die durch Ausgleichsrechnung des Anstiegs des Relaxationsstromes bestimmten Aktivierungsenergien unter denen durch Integration bestimmten liegen.
+Beide Methoden liegen insgesamt um den Literaturwert verteilt, auch wenn keiner der Werte mit seinen Unsicherheitsintervallen auf dem Literaturwert liegt.
+\begin{table}[H]
+  \centering
+  \caption{Aktivierungsenergien aus beiden Messmethoden.}
+  \label{tab:alen}
+  \begin{tabular}{c|c|c|c}
+    Anlaufkurve&&Integration&\\
+    \hline
+    $W_1$ & $W_2$ & $W_3$ & $W_4$\\
+    \hline
+    $(0,786\pm 0,052)\si{\electronvolt}$ & $(0,429\pm 0,052)\si{\electronvolt}$ & $(1,074\pm 0,017)\si{\electronvolt}$ & $(1,169\pm 0,065)\si{\electronvolt}$ \\
+  \end{tabular}
+\end{table}
+
+In der Literatur \cite{literaturwert} ist die Relaxationszeit eines Strontium Dipols durch
+\begin{equation}
+  \tau_{lit} = 4\cdot10^{-14}\si{\second}
+\end{equation}
+gegeben.
+Die berechneten charakteristischen Relaxationszeiten \ref{eq:relax} weisen sehr starke Abweichungen vom Literaturwert auf.
+Dies ist vor allem darauf zurückzuführen,
+dass sich auch schon sehr kleine Fehler in den Aktivierungsenergien stark auf die errechnete Relaxationszeit fortpflanzen,
+da diese Fehler in die Formel \eqref{eq:tau_0} exponentiell eingehen.
+
+Verfahrensunabhängige Fehlerquellen sind hierbei die Schwankung der Heizraten $H$,
+welche unter anderem dadurch bedingt sind,
+dass zu Beginn des Heizvorganges das Temperaturgefälle zwischen Probe und Umgebung sehr stark ist,
+weshalb die Temperatur ohne zu heizen bereits sehr rapide steigt,
+wohingegen ab ca. $\SI{50}{\celsius}$ die maximal zur Verfügung stehende Heizleistung aufgebracht werden muss,
+um die Heizrate nicht zu sehr fallen zu lassen.
+Zudem ist das verwandte Picoampermeter erschütterungssensitiv.
