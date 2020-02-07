@@ -70,7 +70,8 @@ print()
 print('Lande-Faktoren')
 
 def dellambda(ds,Ds,Dl):
-    return np.mean(ds/Ds*Dl)/2
+    dl = (ds/Ds*Dl)/2
+    return unp.uarray(np.mean(dl), np.std(dl))
 
 def g_j(dl, l, B):
     return cst.h * cst.c/(l**2 * cst.value('Bohr magneton') * B) * dl
